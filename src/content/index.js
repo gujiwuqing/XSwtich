@@ -11,7 +11,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       document.head.removeChild(script);
       sendResponse({ success: true });
     } catch (error) {
-      console.error('[xSwitch] Error injecting script:', error);
+      console.error('[FliggySwitch] Error injecting script:', error);
       sendResponse({ success: false, error: error.message });
     }
   }
@@ -26,4 +26,4 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 // 通知background脚本内容脚本已加载
 chrome.runtime.sendMessage({ action: 'contentScriptLoaded' });
 
-console.log('[xSwitch] Content script loaded');
+console.log('[FliggySwitch] Content script loaded');

@@ -271,7 +271,7 @@ const App = () => {
       enabled 
     }, (response) => {
       if (response && response.success) {
-        message.success(`xSwitch已${enabled ? '启用' : '禁用'}`);
+        message.success(`FliggySwitch已${enabled ? '启用' : '禁用'}`);
       } else {
         message.error('切换失败，请重试');
         setGlobalEnabled(!enabled); // 回滚状态
@@ -394,7 +394,7 @@ const App = () => {
     
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'xswitch_all_configs.json';
+    a.download = 'FliggySwitch_all_configs.json';
     a.click();
     
     URL.revokeObjectURL(url);
@@ -462,7 +462,7 @@ const App = () => {
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <Title level={4} style={{ color: '#fff', margin: 0 }}>
-            xSwitch ({enabledCount}/{proxyConfigs.length} 启用)
+            FliggySwitch ({enabledCount}/{proxyConfigs.length} 启用)
           </Title>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             <Text style={{ color: '#fff', fontSize: '12px' }}>
@@ -522,7 +522,7 @@ const App = () => {
             size="small"
           >
             <Text style={{ color: '#ff4d4f', fontSize: '14px' }}>
-              ⚠️ xSwitch 总开关已禁用，所有代理规则暂停生效
+              ⚠️ FliggySwitch 总开关已禁用，所有代理规则暂停生效
             </Text>
           </Card>
         )}
@@ -557,7 +557,7 @@ const App = () => {
             setEditingConfig(null);
             form.resetFields();
           }}
-          width={700}
+          width={800}
           okText="保存"
           cancelText="取消"
         >

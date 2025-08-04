@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "xSwitch",
+  "name": "FliggySwitch",
   "version": "1.0.0",
   "description": "一个用于HTTP请求拦截与重定向的浏览器扩展",
   "icons": {

@@ -1,4 +1,4 @@
-# xSwitch
+# FliggySwitch
 
 一个用于HTTP请求拦截与重定向的浏览器扩展插件，使用Ant Design 5构建界面。
 

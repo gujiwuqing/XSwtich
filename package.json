@@ -1,5 +1,5 @@
 {
-  "name": "xswtich",
+  "name": "fliggy-switch",
   "version": "1.0.0",
   "description": "一个用于HTTP请求拦截与重定向的浏览器扩展",
   "main": "index.js",
@@ -13,7 +13,7 @@
     "http",
     "redirect",
     "mock",
-    "xswitch"
+    "FliggySwitch"
   ],
   "author": "",
   "license": "ISC",

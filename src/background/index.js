@@ -142,7 +142,7 @@ async function updateDynamicRules() {
 
     // 如果全局禁用，不添加任何规则
     if (!globalEnabled) {
-      console.log('[xSwitch] Global disabled, no rules added');
+      console.log('[FliggySwitch] Global disabled, no rules added');
       return;
     }
 
@@ -150,7 +150,7 @@ async function updateDynamicRules() {
     const enabledConfigs = proxyConfigs.filter(config => config.enabled);
     
     if (enabledConfigs.length === 0) {
-      console.log('[xSwitch] No enabled configs, no rules added');
+      console.log('[FliggySwitch] No enabled configs, no rules added');
       return;
     }
 
@@ -175,7 +175,7 @@ async function updateDynamicRules() {
         if (declarativeRule) {
           newRules.push(declarativeRule);
           ruleId++;
-          console.log(`[xSwitch] Config "${config.name}" rule added: ${fromPattern} -> ${toPattern}`);
+          console.log(`[FliggySwitch] Config "${config.name}" rule added: ${fromPattern} -> ${toPattern}`);
         }
       }
     }
@@ -185,14 +185,14 @@ async function updateDynamicRules() {
       await chrome.declarativeNetRequest.updateDynamicRules({
         addRules: newRules
       });
-      console.log(`[xSwitch] Added ${newRules.length} dynamic rules`);
+      console.log(`[FliggySwitch] Added ${newRules.length} dynamic rules`);
     }
 
   } catch (error) {
-    console.error('[xSwitch] Error updating dynamic rules:', error);
+    console.error('[FliggySwitch] Error updating dynamic rules:', error);
     
     // 如果declarativeNetRequest不可用，回退到传统的webRequest方式
-    console.log('[xSwitch] Falling back to webRequest method');
+    console.log('[FliggySwitch] Falling back to webRequest method');
     setupWebRequestListener();
   }
 }
@@ -246,7 +246,7 @@ function webRequestHandler(details) {
       
       if (matchUrl(details.url, fromPattern)) {
         const redirectUrl = replaceUrl(details.url, fromPattern, toPattern);
-        console.log(`[xSwitch] Config "${config.name}" would redirect ${details.url} to ${redirectUrl}`);
+        console.log(`[FliggySwitch] Config "${config.name}" would redirect ${details.url} to ${redirectUrl}`);
         // 注意：由于没有blocking权限，这里只能记录日志，无法实际重定向
         break;
       }
@@ -341,4 +341,4 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
 });
 
-console.log('[xSwitch] Background script loaded');
+console.log('[FliggySwitch] Background script loaded');
